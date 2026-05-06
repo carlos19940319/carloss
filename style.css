@@ -747,9 +747,9 @@ main {
 
   background:
     radial-gradient(circle at 30% 30%,
-      rgba(255,255,255,.95),
-      rgba(95,180,255,.95),
-      rgba(0,102,255,.75)
+      rgba(255,255,255,.99),
+      rgba(95,180,255,.99),
+      rgba(0,102,255,.99)
     );
 
   animation-duration:10s;
@@ -765,9 +765,9 @@ main {
 
   background:
     radial-gradient(circle at 30% 30%,
-      rgba(255,255,255,.95),
-      rgba(255,120,120,.95),
-      rgba(255,45,45,.78)
+      rgba(255,255,255,.99),
+      rgba(255,120,120,.99),
+      rgba(255,45,45,.99)
     );
 
   animation-duration:13s;
@@ -783,9 +783,9 @@ main {
 
   background:
     radial-gradient(circle at 30% 30%,
-      rgba(255,255,255,.95),
-      rgba(255,235,120,.95),
-      rgba(255,196,0,.75)
+      rgba(255,255,255,.99),
+      rgba(255,235,120,.99),
+      rgba(255,196,0,.99)
     );
 
   animation-duration:11s;
@@ -809,8 +809,8 @@ main {
   background:
     linear-gradient(
       to bottom,
-      rgba(255,255,255,.55),
-      rgba(180,180,180,.15)
+      rgba(255,255,255,.99),
+      rgba(180,180,180,.99)
     );
 }
 
@@ -828,7 +828,7 @@ main {
   }
 
   10%{
-    opacity:.42;
+    opacity:.80;
   }
 
   50%{
