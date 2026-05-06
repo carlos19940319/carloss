@@ -645,14 +645,9 @@ box-shadow .8s ease;
 /* cuando sale */
 
 .reveal.salir{
-  opacity:0;
-
-  transform:
-    translateY(-60px)
-    rotate(4deg)
-    scale(.92);
+  opacity:1;
+  transform:none;
 }
-
 /* =========================================
    EFECTOS DE HOJAS
 ========================================= */
