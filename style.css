@@ -616,29 +616,6 @@ box-shadow .8s ease;
     0 22px 55px rgba(201,162,39,.25);
 }
 
-/* TEXOS */
-
-.hoja-card h2{
-  position:relative;
-}
-
-.hoja-card h2::after{
-  content:"";
-  display:block;
-
-  width:90px;
-  height:2px;
-
-  margin:14px auto 0;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent,
-      var(--dorado),
-      transparent
-    );
-}
 
 
 /* =========================================
