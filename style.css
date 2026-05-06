@@ -17,8 +17,8 @@ body{
 
   background:
     linear-gradient(
-      rgba(255,248,239,.08),
-      rgba(255,248,239,.14)
+      rgba(255,248,239,.35),
+      rgba(255,248,239,.45)
     ),
     url("img/fondo-contador1.jpg");
 
@@ -37,12 +37,6 @@ body{
   text-align:center;
 
   overflow-x:hidden;
-
-  /* MÁS COLOR Y VIDA */
-  filter:
-    saturate(1.12)
-    contrast(1.05)
-    brightness(1.03);
 }
 
 .oculto {
