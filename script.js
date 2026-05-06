@@ -6,16 +6,31 @@ const btnMusica = document.getElementById("btnMusica");
 
 /* ENTRAR A LA INVITACIÓN */
 btnEntrar.addEventListener("click", () => {
-  portada.style.display = "none";
-  invitacion.classList.remove("oculto");
-  btnMusica.classList.remove("oculto");
+
+  portada.classList.add("saliendo");
 
   musica.play().catch(() => {
     console.log("El navegador bloqueó la reproducción automática.");
   });
 
-  agregarDecoracionHojas();
-  activarAnimacionesHojas();
+  setTimeout(() => {
+    portada.style.display = "none";
+
+    invitacion.classList.remove("oculto");
+    invitacion.classList.add("entrando");
+
+    btnMusica.classList.remove("oculto");
+
+    agregarDecoracionHojas();
+    activarAnimacionesHojas();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }, 1000);
+
 });
 
 /* BOTÓN MÚSICA */
