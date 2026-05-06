@@ -100,18 +100,29 @@ actualizarContador();
 /* ANIMACIÓN TARJETAS TIPO HOJAS */
 const elementos = document.querySelectorAll(".reveal");
 
+/* OBSERVER CORREGIDO PARA EVITAR PARPADEO */
 const observerHojas = new IntersectionObserver((entries) => {
+
   entries.forEach((entry) => {
+
     if (entry.isIntersecting) {
+
       entry.target.classList.add("visible");
       entry.target.classList.remove("salir");
-    } else {
-      entry.target.classList.remove("visible");
-      entry.target.classList.add("salir");
+
+      /*
+        Esto evita que la tarjeta se vuelva a animar
+        cada vez que subes o bajas el scroll.
+      */
+      observerHojas.unobserve(entry.target);
+
     }
+
   });
+
 }, {
-  threshold: 0.18
+  threshold: 0.15,
+  rootMargin: "0px 0px -80px 0px"
 });
 
 function activarAnimacionesHojas() {
@@ -142,6 +153,5 @@ function agregarDecoracionHojas() {
     tarjeta.appendChild(globo3);
 
   });
-
 
 }
