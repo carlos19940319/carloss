@@ -1371,38 +1371,3 @@ box-shadow .8s ease;
 
 
 
-
-/* CORRECCIÓN FINAL ANTI-PARPADEO */
-
-body::before{
-  filter:none !important;
-  transform:none !important;
-  background-attachment:scroll !important;
-}
-
-.hoja-card{
-  backdrop-filter:none !important;
-}
-
-.fondo-card{
-  animation:none !important;
-  transform:scale(1.05) !important;
-}
-
-.globo{
-  z-index:0 !important;
-  pointer-events:none;
-}
-
-.hoja-card > *{
-  position:relative;
-  z-index:3;
-}
-
-.imagen-principal,
-.imagen-card,
-.hoja-card h2,
-.hoja-card p{
-  position:relative;
-  z-index:5;
-}
