@@ -640,38 +640,7 @@ box-shadow .8s ease;
     );
 }
 
-/* =========================================
-   ANIMACIÓN APARECER / DESAPARECER
-========================================= */
 
-.reveal{
-  opacity:0;
-
-  transform:
-    translateY(90px)
-    rotate(-5deg)
-    scale(.88);
-
-  transition:
-    opacity 1s ease,
-    transform 1.2s cubic-bezier(.16,1,.3,1);
-}
-
-.reveal.visible{
-  opacity:1;
-
-  transform:
-    translateY(0)
-    rotate(0)
-    scale(1);
-}
-
-/* cuando sale */
-
-.reveal.salir{
-  opacity:1;
-  transform:none;
-}
 /* =========================================
    EFECTOS DE HOJAS
 ========================================= */
