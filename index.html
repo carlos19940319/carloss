@@ -1,153 +1,145 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<title>PIZZAS</title>
-	<UL>
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">
-	<form>
-          
-          <button type="submit" class="boton1">WhatsApp 7221898309</button>
-        </form>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bautizo | Matías & Abdiel</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<div id="contra"><P><MARQUEE><h2><font color="RED"> Entre el silencio y la soledad, la locura carcome un corazon herido.... </font><font color="white">   Aunque el tiempo y la distancia nos logra separar, mi corazon y el tuyo se podran encontrar....</font><font color="blue">  Si fuera un poeta te dedicaria un poema, 
-si fuera un cantante una cancion, 
-pero como solo soy una simple mortal, 
-te dedico mi sincero corazon.</font></P></center></h2></MARQUEE><br>
-		</div>
-<body background="img/negro.jpg">
-	<embed><src="musica/musi2.mp3" loop="2"></body>
 
-
-<div id="principal">
-	<header>
-
-		<nav class="navegacion">
-			<ul class="menu">
-				
-				</ul>
-		<div id="logo">
-			<center><h1><font color="white">PIZZERIA</font></h1>
-			
-		
-		</div>
-		<body>
-			<div id="barraHorizontal">
-				</div>
-				<ul id="menu"><br>
-					<li>		<div class="panel">
-					<div class="front">
-						<img width="80	" src="img/historia.png" alt="historia"/>
-						<h2><font color="white">historia</a></font></h2>
-						
-
-					</div>
-
-					<div class="back">
-						<ul>
-							
-						<br><br><li><a href="index.html">Inicio</a></li>
-							<li><a href="historia2.html">Historia</a></li>
-							
-						</ul>
-
-					</div>
-					</div></li>
-					<li><div class="panel">
-					<div class="front">
-						<img width="80" src="img/videos.png" alt="video"/>
-						<h2><font color="white"><a herf="">Videos</a></font></h2>
-
-					</div>
-					<div class="back">
-						<ul>
-							<li> <a href="videos3.html">Callejoneadas</a></li>
-							<li><a href="videos3.html">Encuentros</a></li>
-							<li><a href="videos3.html">Concursos</a></li>
-							
-						</ul>
-
-					</div>
-					</div></li>
-					<li><div class="panel">
-					<div class="front">
-						<img width="80" src="img/foto.png" alt="foto"/>
-						<h2><font color="white"><a herf="">Fotos</a></font></h2>
-
-					</div>
-					<div class="back">
-					<ul>
-							<li><a href="fotos4.html">Callejoneadas</a></li>
-							<li><a href="fotos4.html">Encuentros</a></li>
-							<li><a href="fotos4.html">Concursos</a></li>
-							
-						</ul>
-						
-
-					</div>
-					</div></li>
-					<li><div class="panel">
-					<div class="front">
-						<img width="80" src="img/bajo.png" alt="bajo"/>
-						<h2><font color="white"><a herf="">Eventos</a></font></h2>
-
-
-
-					</div>
-					<div class="back">
-						<ul>
-							<br><li><a href="eventos5.html">concursos</a></li>
-							<li><a href="eventos5.html">Callejoneadas</a></li>
-							
-						</ul>
-						
-
-					</div>
-					</div></li>
-					<li><div class="panel">
-					<div class="front">
-						<img width="80" src="img/contacto.png" alt="contacto"/>
-						<h2><font color="white"><a herf="">Contacto</a></font></h2>
-
-
-					</div>
-					<div class="back">
-						<ul>
-
-							
-							<br><li><a href="contacto6.html">SENRRO</a></li>
-							
-						</ul>
-						</div></li>
-					<li><div class="panel">
-					<div class="front">
-						<img width="80" src="img/bajo.png" alt="bajo"/>
-						<h2><font color="white"><a herf="">Eventos</a></font></h2>
-
-
-
-					</div>
-						
-
-					</div>
-					</div></li>
-
-
-				</ul>
-
-			</header>
-
-			<SECTION id="slider">
-			
-		<img src="img/pizza1.png" white="700" height="700
-	">
-	
-	</SECTION>
-</body>
-</div>
 <body>
-<
 
+  <audio id="musica" loop>
+    <source src="audio/musica.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- PORTADA -->
+  <section id="portada">
+    <img src="img/fondo.png" class="video-fondo" alt="Fondo">
+
+    <div class="capa"></div>
+
+    <div class="portada-contenido">
+      <p class="texto-mini">Invitación digital</p>
+      <h1>Matías & Abdiel</h1>
+      <h2>Nuestro Bautizo</h2>
+      <p class="fecha">18 de Diciembre 2026</p>
+
+      <button id="btnEntrar">Tocar para ver invitación</button>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <main id="invitacion" class="oculto">
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-bendicion.jpg');"></div>
+
+      <img src="img/fondo2.jpg" alt="Bebé" class="imagen-principal">
+
+      <h2>Con la bendición de Dios</h2>
+      <p>
+        Te invitamos a compartir con nosotros este momento tan especial,
+        donde Matías y Abdiel recibirán el sacramento del bautismo.
+      </p>
+    </section>
+
+    <section class="seccion hoja-card contador-box reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador1.jpg');"></div>
+
+      <h2>Faltan</h2>
+
+      <div id="contador" class="contador">
+        <div><span id="dias">00</span><small>Días</small></div>
+        <div><span id="horas">00</span><small>Horas</small></div>
+        <div><span id="minutos">00</span><small>Min</small></div>
+        <div><span id="segundos">00</span><small>Seg</small></div>
+      </div>
+    </section>
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Padres</h2>
+      <p>Jose Carlos Miranda Miranda</p>
+      <p>Gabriela Ignacio Francisco</p>
+    </section>
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Padrinos</h2>
+      <p>Govani Gomora</p>
+      <p>Lesly Miranda</p>
+    </section>
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Ceremonia Religiosa</h2>
+
+      <img src="img/fondo2.jpg" alt="Iglesia" class="imagen-card">
+
+      <p>Parroquia de San Gaspar Tlahuelilpan Metepec</p>
+      <p>12:00 PM</p>
+
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=Parroquia+de+San+Gaspar+Tlahuelilpan+Metepec,+Puebla+S/N,+San+Gaspar+Tlahuelilpan,+52147,+México"
+        target="_blank"
+        class="btn">
+        Cómo llegar
+      </a>
+    </section>
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Recepción</h2>
+
+      <img src="img/fondo2.jpg" alt="Salón" class="imagen-card">
+
+      <p>Salón Jardín León</p>
+      <p>02:00 PM</p>
+
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=Salón+Jardín+León,+Celaya+50,+San+Gaspar+Tlahuelilpan,+52147,+México"
+        target="_blank"
+        class="btn">
+        Cómo llegar
+      </a>
+    </section>
+
+   
+
+    <section class="seccion hoja-card reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Mesa de regalos</h2>
+      <p>Tu presencia es nuestro mejor regalo.</p>
+      <p>💌 Lluvia de sobres</p>
+    </section>
+
+    <section class="seccion hoja-card confirmar reveal">
+      <div class="fondo-card" style="background-image:url('img/fondo-contador.jpg');"></div>
+
+      <h2>Confirma tu asistencia</h2>
+      <p>Será un honor contar contigo en este día tan especial.</p>
+
+      <a
+        href="https://wa.me/521XXXXXXXXXX?text=Hola,%20confirmo%20mi%20asistencia%20al%20bautizo"
+        target="_blank"
+        class="btn-whatsapp">
+        Confirmar por WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <button id="btnMusica" class="btn-musica oculto">♪</button>
+
+  <script src="script.js"></script>
 </body>
-</div>
 </html>
