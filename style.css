@@ -294,7 +294,7 @@ body::before{
 /* SECCIONES */
 
 main {
-  animation: aparecerMain 1s ease both;
+  opacity: 1;
 }
 
 .seccion {
@@ -1353,7 +1353,18 @@ box-shadow .8s ease;
     0 14px 35px rgba(0,0,0,.22),
     0 30px 70px rgba(0,0,0,.28);
 }
+/* CORRECCIÓN FINAL */
 
+.seccion,
+.hoja-card,
+.fondo-card{
+  backface-visibility:hidden;
+  transform-style:preserve-3d;
+}
+
+.hoja-card h2{
+  background:none !important;
+  backdrop-filter:none
 
 
 
