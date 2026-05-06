@@ -1364,7 +1364,9 @@ box-shadow .8s ease;
 
 .hoja-card h2{
   background:none !important;
-  backdrop-filter:none
+  backdrop-filter:none !important;
+  box-shadow:none !important;
+}
 
 
 
