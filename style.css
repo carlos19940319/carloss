@@ -905,7 +905,7 @@ main {
   background-position:center;
   background-repeat:no-repeat;
 
-  opacity:.90;
+  opacity:1;
 
   z-index:0;
 
@@ -923,8 +923,8 @@ main {
   background:
     linear-gradient(
       to bottom,
-      rgba(255,255,255,.10),
-      rgba(255,248,239,.18)
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.45)
     );
 }
 
@@ -937,8 +937,8 @@ main {
       rotate(0deg);
 
     filter:
-      brightness(.95)
-      saturate(1.05);
+      brightness(1.1)
+      saturate(1.03);
   }
 
   25%{
