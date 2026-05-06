@@ -1377,3 +1377,10 @@ box-shadow .8s ease;
     0 0 25px rgba(201,162,39,.22),
     0 0 0 1px rgba(255,255,255,.18);
 }
+/* SOMBRA PREMIUM FLOTANTE */
+
+.hoja-card{
+  box-shadow:
+    0 14px 35px rgba(0,0,0,.22),
+    0 30px 70px rgba(0,0,0,.28);
+}
