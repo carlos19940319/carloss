@@ -717,20 +717,24 @@ main {
   bottom:-180px;
   border-radius:50%;
 
-  opacity:.92;
+  /* MÁS VISIBLES */
+  opacity:1;
+
   z-index:1;
 
   filter:
-    blur(.2px)
-    saturate(1.2);
+    blur(0)
+    saturate(1.45)
+    brightness(1.08)
+    contrast(1.08);
 
   animation:
     subirGlobos linear infinite;
 
   box-shadow:
-    inset -12px -18px 25px rgba(0,0,0,.12),
-    inset 10px 10px 20px rgba(255,255,255,.35),
-    0 10px 30px rgba(0,0,0,.15);
+    inset -10px -14px 18px rgba(0,0,0,.10),
+    inset 6px 6px 10px rgba(255,255,255,.18),
+    0 14px 35px rgba(0,0,0,.22);
 }
 
 /* ROBLOX AZUL */
