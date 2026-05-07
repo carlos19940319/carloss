@@ -27,7 +27,7 @@ body{
   min-height:100vh;
 }
 
-/* FONDO FIJO REAL */
+/* FONDO FIJO REAL - ESTABLE Y NATURAL */
 body::before{
   content:"";
 
@@ -38,41 +38,38 @@ body::before{
   z-index:-1;
 
   background:
-    
-    /* CAPA DE COLOR */
-    linear-gradient(
-      rgba(0,0,0,.20),
-      rgba(0,0,0,.25)
-    ),
 
-    /* TONO CÁLIDO */
+    /* CAPA SUAVE */
     linear-gradient(
-      135deg,
-      rgba(201,162,39,.18),
-      rgba(255,120,80,.10),
-      rgba(255,255,255,.05)
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.12)
     ),
 
     url("img/file_00000000000871f6918dba68bbf2a91a.png");
 
   background-size:cover;
 
-  background-position:center;
+  background-position:center center;
 
   background-repeat:no-repeat;
 
-  background-attachment:fixed;
+  /* MÁS ESTABLE EN CELULAR */
+  background-attachment:scroll;
 
+  /* COLORES MÁS REALES */
   filter:
-    saturate(1.35)
-    contrast(1.08)
-    brightness(.95);
+    saturate(1.05)
+    contrast(1.02)
+    brightness(1);
 
-  transform:scale(1.03);
+  /* EVITA EFECTO DE MOVIMIENTO */
+  transform:none;
+
+  pointer-events:none;
 }
 
-.oculto {
-  display: none !important;
+.oculto{
+  display:none !important;
 }
 
 /* PORTADA */
