@@ -155,3 +155,34 @@ function agregarDecoracionHojas() {
   });
 
 }
+/* ================================
+   ANIMACIONES AL HACER SCROLL
+================================ */
+
+const elementosAnimados = document.querySelectorAll(
+  ".seccion, .hoja-card, .fondo-card, .imagen-principal, .imagen-card, .foto-redonda-wrap, .foto-redonda, .texto-card, .fecha"
+);
+
+elementosAnimados.forEach((el, index) => {
+  el.classList.add("animar-scroll");
+
+  if (index % 3 === 0) el.classList.add("animar-izquierda");
+  if (index % 3 === 1) el.classList.add("animar-derecha");
+  if (index % 3 === 2) el.classList.add("animar-zoom");
+});
+
+const observadorAnimacion = new IntersectionObserver((entradas) => {
+  entradas.forEach((entrada) => {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add("visible");
+    } else {
+      entrada.target.classList.remove("visible");
+    }
+  });
+}, {
+  threshold:0.18
+});
+
+elementosAnimados.forEach((el) => {
+  observadorAnimacion.observe(el);
+});
