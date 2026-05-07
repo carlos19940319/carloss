@@ -90,21 +90,10 @@ function actualizarContador() {
     return;
   }
 
-  const dias = Math.floor(
-    diferencia / (1000 * 60 * 60 * 24)
-  );
-
-  const horas = Math.floor(
-    (diferencia / (1000 * 60 * 60)) % 24
-  );
-
-  const minutos = Math.floor(
-    (diferencia / (1000 * 60)) % 60
-  );
-
-  const segundos = Math.floor(
-    (diferencia / 1000) % 60
-  );
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+  const segundos = Math.floor((diferencia / 1000) % 60);
 
   document.getElementById("dias").textContent =
     dias.toString().padStart(2, "0");
@@ -120,14 +109,12 @@ function actualizarContador() {
 }
 
 setInterval(actualizarContador, 1000);
-
 actualizarContador();
 
 
 /* ANIMACIÓN TARJETAS */
 const elementos = document.querySelectorAll(".reveal");
 
-/* OBSERVER CORREGIDO PARA EVITAR PARPADEO */
 const observerHojas = new IntersectionObserver((entries) => {
 
   entries.forEach((entry) => {
@@ -156,3 +143,63 @@ function activarAnimacionesHojas() {
   });
 
 }
+
+
+/* =========================================
+   GLOBOS REACCIONAN AL TACTO Y MOUSE
+========================================= */
+
+const globos = document.querySelectorAll(".globo");
+
+function empujarGlobos(x, y) {
+
+  globos.forEach((globo) => {
+
+    const rect = globo.getBoundingClientRect();
+
+    const centroX = rect.left + rect.width / 2;
+    const centroY = rect.top + rect.height / 2;
+
+    const dx = centroX - x;
+    const dy = centroY - y;
+
+    const distancia = Math.sqrt(dx * dx + dy * dy);
+
+    if (distancia < 190) {
+
+      const fuerza = (190 - distancia) / 190;
+
+      const moverX = dx * fuerza * 0.45;
+      const moverY = dy * fuerza * 0.35;
+
+      globo.style.setProperty("--pushX", moverX + "px");
+      globo.style.setProperty("--pushY", moverY + "px");
+
+      clearTimeout(globo.resetPush);
+
+      globo.resetPush = setTimeout(() => {
+        globo.style.setProperty("--pushX", "0px");
+        globo.style.setProperty("--pushY", "0px");
+      }, 420);
+
+    }
+
+  });
+
+}
+
+/* MOUSE */
+window.addEventListener("mousemove", (e) => {
+  empujarGlobos(e.clientX, e.clientY);
+});
+
+/* TACTO */
+window.addEventListener("touchmove", (e) => {
+
+  if (!e.touches.length) return;
+
+  const touch = e.touches[0];
+
+  empujarGlobos(touch.clientX, touch.clientY);
+
+}, { passive: true });
