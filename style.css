@@ -674,7 +674,7 @@ main {
   }
 }
 /* =========================================
-   GLOBOS FLOTANTES FUERA DE TARJETAS
+   GLOBOS FLOTANTES SUAVES Y TRANSPARENTES
 ========================================= */
 
 .globos-fondo{
@@ -686,22 +686,31 @@ main {
 }
 
 .globo{
-   position:fixed;
+  position:fixed;
   bottom:-180px;
 
   border-radius:50% 50% 48% 52%;
   opacity:0;
 
-  filter:saturate(1.45) brightness(1.08) contrast(1.08);
+  /* VARIABLES PARA EMPUJE */
+  --pushX:0px;
+  --pushY:0px;
 
-  animation:subirGlobos linear infinite;
+  filter:
+    saturate(1.25)
+    brightness(1.05)
+    contrast(1.03);
+
+  animation:
+    subirGlobosSuave linear infinite;
 
   box-shadow:
-    inset -12px -16px 22px rgba(0,0,0,.16),
-    inset 8px 8px 14px rgba(255,255,255,.42),
-    0 18px 38px rgba(0,0,0,.22);
-}
+    inset -10px -14px 20px rgba(0,0,0,.12),
+    inset 8px 8px 14px rgba(255,255,255,.35),
+    0 14px 28px rgba(0,0,0,.15);
 
+  will-change:transform;
+}
 /* BRILLO */
 .globo span{
   position:absolute;
@@ -710,7 +719,7 @@ main {
   top:18%;
   left:22%;
   border-radius:50%;
-  background:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.65);
   filter:blur(1px);
 }
 
@@ -718,9 +727,9 @@ main {
 .globo::before{
   content:"";
   position:absolute;
-  width:16px;
-  height:16px;
-  bottom:-7px;
+  width:14px;
+  height:14px;
+  bottom:-6px;
   left:50%;
   transform:translateX(-50%) rotate(45deg);
   background:inherit;
@@ -731,63 +740,45 @@ main {
 .globo::after{
   content:"";
   position:absolute;
-  width:2px;
-  height:135px;
+  width:1.5px;
+  height:120px;
   left:50%;
   top:100%;
   transform:translateX(-50%);
   background:linear-gradient(
     to bottom,
-    rgba(255,255,255,.8),
-    rgba(120,120,120,.12)
+    rgba(255,255,255,.45),
+    rgba(120,120,120,.08)
   );
   border-radius:999px;
 }
 
-/* MÁS GLOBOS, MÁS CONSTANTES */
-
-.globo1{
-  width:95px;
-  height:120px;
-  left:4%;
-  background:radial-gradient(circle at 30% 25%, #fff, #6ec6ff 32%, #0066ff);
-  animation-duration:8s;
-  animation-delay:0s;
-}
-
-.globo2{
-  width:115px;
-  height:145px;
-  left:86%;
-  background:radial-gradient(circle at 30% 25%, #fff, #ff8a8a 32%, #ff2d2d);
-  animation-duration:9s;
-  animation-delay:1s;
-}
+/* GLOBOS */
 
 .globo3{
   width:82px;
   height:105px;
   left:44%;
-  background:radial-gradient(circle at 30% 25%, #fff, #fff08a 32%, #ffc400);
-  animation-duration:8.5s;
-  animation-delay:2s;
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.90), rgba(255,240,138,.82) 32%, rgba(255,196,0,.72));
+  animation-duration:12s;
+  animation-delay:0s;
 }
 
 .globo4{
   width:72px;
   height:95px;
   left:70%;
-  background:radial-gradient(circle at 30% 25%, #fff, #9ee4ff 32%, #2296ff);
-  animation-duration:7.5s;
-  animation-delay:3s;
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.90), rgba(158,228,255,.82) 32%, rgba(34,150,255,.72));
+  animation-duration:13.5s;
+  animation-delay:2s;
 }
 
 .globo5{
   width:78px;
   height:100px;
   left:20%;
-  background:radial-gradient(circle at 30% 25%, #fff, #ffa3a3 32%, #e60023);
-  animation-duration:8s;
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.90), rgba(255,163,163,.82) 32%, rgba(230,0,35,.68));
+  animation-duration:12.8s;
   animation-delay:4s;
 }
 
@@ -795,52 +786,70 @@ main {
   width:70px;
   height:92px;
   left:58%;
-  background:radial-gradient(circle at 30% 25%, #fff, #f1df9a 32%, #c9a227);
-  animation-duration:7s;
-  animation-delay:5s;
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.90), rgba(241,223,154,.82) 32%, rgba(201,162,39,.70));
+  animation-duration:14s;
+  animation-delay:6s;
 }
 
-.globo7{
-  width:88px;
-  height:112px;
-  left:32%;
-  background:radial-gradient(circle at 30% 25%, #fff, #7fbfff 32%, #004cff);
-  animation-duration:9s;
-  animation-delay:1.5s;
-}
+/* ANIMACIÓN SUAVE + EMPUJE TÁCTIL */
 
-.globo8{
-  width:76px;
-  height:98px;
-  left:78%;
-  background:radial-gradient(circle at 30% 25%, #fff, #ffd0d0 32%, #ff4b4b);
-  animation-duration:8.2s;
-  animation-delay:2.5s;
-}
-
-/* ANIMACIÓN MÁS CONSTANTE */
-
-@keyframes subirGlobos{
+@keyframes subirGlobosSuave{
   0%{
-    transform:translateY(0) translateX(0) scale(.75) rotate(-2deg);
+    transform:
+      translateY(0)
+      translateX(calc(0px + var(--pushX, 0px)))
+      translateY(var(--pushY, 0px))
+      scale(.78)
+      rotate(-4deg);
+
     opacity:0;
   }
 
-  8%{
-    opacity:.95;
+  12%{
+    opacity:.73;
   }
 
-  45%{
-    transform:translateY(-45vh) translateX(22px) scale(1) rotate(3deg);
-    opacity:.9;
+  30%{
+    transform:
+      translateY(-32vh)
+      translateX(calc(-18px + var(--pushX, 0px)))
+      translateY(var(--pushY, 0px))
+      scale(.92)
+      rotate(4deg);
+
+    opacity:.78;
   }
 
-  75%{
-    opacity:.75;
+  55%{
+    transform:
+      translateY(-62vh)
+      translateX(calc(24px + var(--pushX, 0px)))
+      translateY(var(--pushY, 0px))
+      scale(1)
+      rotate(-3deg);
+
+    opacity:.73;
+  }
+
+  78%{
+    transform:
+      translateY(-90vh)
+      translateX(calc(-12px + var(--pushX, 0px)))
+      translateY(var(--pushY, 0px))
+      scale(1.05)
+      rotate(3deg);
+
+    opacity:.58;
   }
 
   100%{
-    transform:translateY(-120vh) translateX(-24px) scale(1.08) rotate(-3deg);
+    transform:
+      translateY(-125vh)
+      translateX(calc(18px + var(--pushX, 0px)))
+      translateY(var(--pushY, 0px))
+      scale(1.08)
+      rotate(-4deg);
+
     opacity:0;
   }
 }
@@ -1273,60 +1282,119 @@ background:
 .padrinos-contenedor{
   display:flex;
   justify-content:center;
-  gap:28px;
-  margin-top:30px;
+  gap:26px;
+  margin-top:34px;
   flex-wrap:wrap;
   position:relative;
   z-index:5;
 }
 
 .card-padrino{
-  width:240px;
-  min-height:120px;
-  padding:22px 18px;
-  border-radius:18px;
+  position:relative;
+  overflow:hidden;
 
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(6px);
+  width:250px;
+  min-height:135px;
+  padding:26px 20px;
 
-  border:1px solid rgba(255,255,255,.55);
+  border-radius:26px 8px 26px 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.72),
+      rgba(255,248,232,.34)
+    );
+
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(212,175,55,.45);
 
   box-shadow:
-    0 12px 30px rgba(0,0,0,.20),
-    inset 0 0 18px rgba(255,255,255,.18);
+    0 18px 38px rgba(0,0,0,.18),
+    inset 0 0 20px rgba(255,255,255,.35);
+}
+
+.card-padrino::before{
+  content:"";
+  position:absolute;
+  inset:7px;
+
+  border:1px solid rgba(255,215,120,.45);
+  border-radius:22px 6px 22px 6px;
+
+  pointer-events:none;
+}
+
+.card-padrino::after{
+  content:"✦";
+  position:absolute;
+  top:8px;
+  right:14px;
+
+  font-size:18px;
+  color:rgba(212,175,55,.75);
+
+  text-shadow:
+    0 0 10px rgba(255,215,120,.45);
 }
 
 .card-padrino h3{
-  font-family:'Inter', sans-serif;
-  font-size:18px;
+  position:relative;
+  z-index:2;
+
+  font-family:'Playfair Display', serif;
+  font-size:21px;
   font-weight:800;
-  color:#5f4630;
+
+  color:#8a5a18;
+
   margin-bottom:14px;
-  text-shadow:0 2px 8px rgba(255,255,255,.8);
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.85),
+    0 4px 10px rgba(120,70,20,.18);
 }
 
 .card-padrino p{
-  font-size:15px;
-  font-weight:700;
+  position:relative;
+  z-index:2;
+
+  font-size:16px;
+  font-weight:800;
+  line-height:1.4;
+
   color:#ffffff;
-  margin:8px 0;
+
+  margin:8px auto;
+  padding:7px 12px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,.42),
+      rgba(0,0,0,.20),
+      rgba(0,0,0,.42)
+    );
+
   text-shadow:
-    0 2px 5px rgba(0,0,0,.55),
-    0 0 12px rgba(0,0,0,.35);
+    0 2px 5px rgba(0,0,0,.75);
 }
 
 @media(max-width:680px){
   .padrinos-contenedor{
     flex-direction:column;
     align-items:center;
+    gap:18px;
   }
 
   .card-padrino{
     width:90%;
-    max-width:300px;
+    max-width:310px;
   }
 }
-
 
 /* ANTI PARPADEO SUAVE - SOLO ENTRADA */
 #invitacion.entrando{
