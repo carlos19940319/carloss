@@ -41,7 +41,6 @@ btnEntrar.addEventListener("click", () => {
 
     btnMusica.classList.remove("oculto");
 
-    agregarDecoracionHojas();
     activarAnimacionesHojas();
 
     window.scrollTo({
@@ -125,7 +124,7 @@ setInterval(actualizarContador, 1000);
 actualizarContador();
 
 
-/* ANIMACIÓN TARJETAS TIPO HOJAS */
+/* ANIMACIÓN TARJETAS */
 const elementos = document.querySelectorAll(".reveal");
 
 /* OBSERVER CORREGIDO PARA EVITAR PARPADEO */
@@ -138,10 +137,6 @@ const observerHojas = new IntersectionObserver((entries) => {
       entry.target.classList.add("visible");
       entry.target.classList.remove("salir");
 
-      /*
-        Esto evita que la tarjeta se vuelva a animar
-        cada vez que subes o bajas el scroll.
-      */
       observerHojas.unobserve(entry.target);
 
     }
@@ -158,32 +153,6 @@ function activarAnimacionesHojas() {
 
   elementos.forEach((elemento) => {
     observerHojas.observe(elemento);
-  });
-
-}
-
-
-function agregarDecoracionHojas() {
-
-  const tarjetas = document.querySelectorAll(".hoja-card");
-
-  tarjetas.forEach((tarjeta) => {
-
-    if (tarjeta.querySelector(".globo")) return;
-
-    const globo1 = document.createElement("div");
-    globo1.classList.add("globo", "globo1");
-
-    const globo2 = document.createElement("div");
-    globo2.classList.add("globo", "globo2");
-
-    const globo3 = document.createElement("div");
-    globo3.classList.add("globo", "globo3");
-
-    tarjeta.appendChild(globo1);
-    tarjeta.appendChild(globo2);
-    tarjeta.appendChild(globo3);
-
   });
 
 }
