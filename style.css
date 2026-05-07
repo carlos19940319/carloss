@@ -1354,41 +1354,36 @@ box-shadow .8s ease;
     0 30px 70px rgba(0,0,0,.28);
 }
 
-
-/* ANTI PARPADEO SUAVE - NO AFECTA DISEÑO */
+/* ANTI PARPADEO SUAVE - SOLO ENTRADA */
 #invitacion.entrando{
-  animation: entradaInvitacionLimpia 1.2s ease both !important;
+  animation:entradaInvitacionLimpia 1.2s ease both;
 }
 
 @keyframes entradaInvitacionLimpia{
   from{
     opacity:0;
     transform:translateY(35px) scale(.98);
-    filter:none;
   }
 
   to{
     opacity:1;
     transform:translateY(0) scale(1);
-    filter:none;
   }
 }
 
-.seccion,
-.hoja-card,
-.fondo-card,
+/* SUAVIZA IMÁGENES SIN ROMPER ANIMACIONES */
+.hoja-card img,
+.fondo-card img,
 .imagen-principal,
 .imagen-card,
-.foto-redonda-wrap,
 .foto-redonda{
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
-  transform-style:flat;
 }
 
+/* IMÁGENES ESTABLES */
 img{
   display:block;
   max-width:100%;
 }
-
 
