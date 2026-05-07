@@ -13,6 +13,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  min-height:100%;
+  overflow-x:hidden;
+}
+
 body{
   position:relative;
 
@@ -24,7 +29,8 @@ body{
 
   overflow-x:hidden;
 
-  min-height:100vh;
+  /* ALTURA FIJA REAL */
+  min-height:var(--alto-pantalla, 100vh);
 }
 
 /* FONDO FIJO REAL - ESTABLE Y NATURAL */
@@ -33,7 +39,13 @@ body::before{
 
   position:fixed;
 
-  inset:0;
+  top:0;
+  left:0;
+
+  width:100vw;
+
+  /* EVITA BRINCO POR BARRA URL */
+  height:var(--alto-pantalla, 100vh);
 
   z-index:-1;
 
@@ -62,10 +74,12 @@ body::before{
     contrast(1.02)
     brightness(1);
 
-  /* EVITA EFECTO DE MOVIMIENTO */
-  transform:none;
+  /* EVITA MICRO MOVIMIENTOS */
+  transform:translateZ(0);
 
   pointer-events:none;
+
+  will-change:transform;
 }
 
 .oculto{
