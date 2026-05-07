@@ -1370,4 +1370,43 @@ box-shadow .8s ease;
     transform:translateY(0) scale(1);
   }
 }
+/* ================================
+   ANIMACIÓN AL HACER SCROLL
+================================ */
+
+.animar-scroll{
+  opacity:0;
+  transform:translateY(45px) scale(.97);
+  filter:blur(4px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.16,1,.3,1),
+    filter .9s ease;
+  will-change:opacity, transform;
+}
+
+.animar-scroll.visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+
+/* Variantes */
+.animar-izquierda{
+  transform:translateX(-45px) scale(.97);
+}
+
+.animar-derecha{
+  transform:translateX(45px) scale(.97);
+}
+
+.animar-zoom{
+  transform:scale(.88);
+}
+
+.animar-scroll.visible.animar-izquierda,
+.animar-scroll.visible.animar-derecha,
+.animar-scroll.visible.animar-zoom{
+  transform:translateX(0) scale(1);
+}
 
