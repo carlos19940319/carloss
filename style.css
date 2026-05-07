@@ -13,7 +13,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body{
   position:relative;
 
@@ -40,8 +39,8 @@ body::before{
 
   width:100vw;
 
-  /* EVITA BRINCO POR BARRA URL */
-  height:var(--alto-pantalla, 100vh);
+  /* MÁS ALTO PARA QUE NO SE CORTE */
+  height:calc(var(--alto-pantalla, 100vh) + 260px);
 
   z-index:-1;
 
@@ -55,13 +54,14 @@ body::before{
 
     url("img/file_000000008ac071fd83e1df5e8c307209.png");
 
-  background-size:cover;
+  /* AJUSTA SOLO AL ANCHO */
+  background-size:100% auto;
 
-  background-position:center center;
+  /* CENTRADO ARRIBA */
+  background-position:top center;
 
   background-repeat:no-repeat;
 
-  /* MÁS ESTABLE EN CELULAR */
   background-attachment:scroll;
 
   /* COLORES MÁS REALES */
@@ -75,7 +75,7 @@ body::before{
 
   pointer-events:none;
 
-  will-change:transform;
+  will-change:auto;
 }
 
 .oculto{
