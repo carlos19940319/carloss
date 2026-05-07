@@ -1,8 +1,28 @@
+/* ALTURA REAL PARA EVITAR BRINCO POR BARRA URL EN CELULAR */
+function fijarAltoPantalla() {
+  const alto = window.innerHeight;
+
+  document.documentElement.style.setProperty(
+    "--alto-pantalla",
+    alto + "px"
+  );
+}
+
+fijarAltoPantalla();
+
+window.addEventListener("orientationchange", () => {
+  setTimeout(() => {
+    fijarAltoPantalla();
+  }, 300);
+});
+
+
 const btnEntrar = document.getElementById("btnEntrar");
 const portada = document.getElementById("portada");
 const invitacion = document.getElementById("invitacion");
 const musica = document.getElementById("musica");
 const btnMusica = document.getElementById("btnMusica");
+
 
 /* ENTRAR A LA INVITACIÓN */
 btnEntrar.addEventListener("click", () => {
@@ -25,28 +45,35 @@ btnEntrar.addEventListener("click", () => {
     activarAnimacionesHojas();
 
     window.scrollTo({
-      top:0,
-      behavior:"smooth"
+      top: 0,
+      behavior: "smooth"
     });
 
   }, 1000);
 
 });
 
+
 /* BOTÓN MÚSICA */
 let musicaActiva = true;
 
 btnMusica.addEventListener("click", () => {
+
   if (musicaActiva) {
     musica.pause();
     btnMusica.textContent = "×";
   } else {
-    musica.play();
+    musica.play().catch(() => {
+      console.log("El navegador bloqueó la reproducción automática.");
+    });
+
     btnMusica.textContent = "♪";
   }
 
   musicaActiva = !musicaActiva;
+
 });
+
 
 /* CONTADOR */
 const fechaEvento = new Date("2026-12-18T12:00:00").getTime();
@@ -97,6 +124,7 @@ setInterval(actualizarContador, 1000);
 
 actualizarContador();
 
+
 /* ANIMACIÓN TARJETAS TIPO HOJAS */
 const elementos = document.querySelectorAll(".reveal");
 
@@ -125,11 +153,15 @@ const observerHojas = new IntersectionObserver((entries) => {
   rootMargin: "0px 0px -80px 0px"
 });
 
+
 function activarAnimacionesHojas() {
+
   elementos.forEach((elemento) => {
     observerHojas.observe(elemento);
   });
+
 }
+
 
 function agregarDecoracionHojas() {
 
