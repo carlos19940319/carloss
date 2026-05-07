@@ -1371,19 +1371,3 @@ box-shadow .8s ease;
   }
 }
 
-/* SUAVIZA IMÁGENES SIN ROMPER ANIMACIONES */
-.hoja-card img,
-.fondo-card img,
-.imagen-principal,
-.imagen-card,
-.foto-redonda{
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-}
-
-/* IMÁGENES ESTABLES */
-img{
-  display:block;
-  max-width:100%;
-}
-
