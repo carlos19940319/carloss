@@ -1114,153 +1114,75 @@ main {
 }
 
 /* =========================================
-   LIBRO DE FOTOS
+   FOTO ÚNICA CON ORILLAS DESVANECIDAS
 ========================================= */
 
-.libro-fotos{
+.foto-desvanecida{
   position:relative;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  width:min(100%, 520px);
+  height:clamp(260px, 55vw, 430px);
 
-  gap:0;
+  margin:12px auto 26px;
 
-  width:min(100%, 760px);
+  border-radius:34px;
 
-  margin:10px auto 24px;
+  overflow:hidden;
 
-  perspective:1200px;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.28),
+    0 0 25px rgba(255,215,120,.18);
 }
 
-/* CENTRO DEL LIBRO */
-.libro-fotos::before{
+.foto-desvanecida img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:34px;
+
+  /* DESVANECIDO REAL EN ORILLAS */
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 58%,
+      rgba(0,0,0,.85) 70%,
+      rgba(0,0,0,.35) 84%,
+      transparent 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 58%,
+      rgba(0,0,0,.85) 70%,
+      rgba(0,0,0,.35) 84%,
+      transparent 100%
+    );
+}
+
+/* BRILLO SUAVE ENCIMA */
+.foto-desvanecida::after{
   content:"";
 
   position:absolute;
+  inset:0;
 
-  width:10px;
-  height:88%;
+  border-radius:34px;
 
-  left:50%;
-  top:50%;
-
-  transform:translate(-50%, -50%);
-
-  border-radius:999px;
+  pointer-events:none;
 
   background:
-    linear-gradient(
-      to right,
-      rgba(90,60,20,.85),
-      rgba(255,215,120,.95),
-      rgba(90,60,20,.85)
+    radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(255,255,255,.18) 78%,
+      rgba(255,215,120,.18) 100%
     );
-
-  box-shadow:
-    0 0 15px rgba(255,215,120,.28);
-
-  z-index:3;
-}
-
-/* PÁGINAS */
-
-.libro-fotos .imagen-libro{
-  position:relative;
-
-  width:50%;
-  max-width:320px;
-  height:420px;
-
-  object-fit:cover;
-
-  border:3px solid rgba(201,162,39,.75);
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.28);
-
-  transition:
-    transform .8s ease,
-    box-shadow .8s ease;
-}
-
-/* IZQUIERDA */
-
-.libro-fotos .imagen-libro:first-child{
-  border-radius:34px 10px 10px 34px;
-
-  transform:
-    rotateY(8deg)
-    rotate(-1deg);
-}
-
-/* DERECHA */
-
-.libro-fotos .imagen-libro:last-child{
-  border-radius:10px 34px 34px 10px;
-
-  transform:
-    rotateY(-8deg)
-    rotate(1deg);
-}
-
-/* HOVER */
-
-.libro-fotos:hover .imagen-libro:first-child{
-  transform:
-    rotateY(2deg)
-    rotate(0deg)
-    scale(1.02);
-}
-
-.libro-fotos:hover .imagen-libro:last-child{
-  transform:
-    rotateY(-2deg)
-    rotate(0deg)
-    scale(1.02);
-}
-
-/* RESPONSIVE SIN ROMPER EL LIBRO */
-
-@media(max-width:680px){
-
-  .libro-fotos{
-    width:100%;
-
-    gap:0;
-
-    padding:0 6px;
-  }
-
-  .libro-fotos::before{
-    width:6px;
-  }
-
-  .libro-fotos .imagen-libro{
-    width:50%;
-
-    max-width:none;
-
-    height:clamp(180px, 42vw, 320px);
-
-    min-width:0;
-  }
-
-  .libro-fotos .imagen-libro:first-child{
-    border-radius:24px 6px 6px 24px;
-
-    transform:
-      rotateY(5deg)
-      rotate(-1deg);
-  }
-
-  .libro-fotos .imagen-libro:last-child{
-    border-radius:6px 24px 24px 6px;
-
-    transform:
-      rotateY(-5deg)
-      rotate(1deg);
-  }
 }
 
 /* =========================================
@@ -1525,7 +1447,7 @@ main {
 
 
 /* =========================================
-   TÍTULOS DORADO ELEGANTE PREMIUM
+   TÍTULO CLARO Y ELEGANTE
 ========================================= */
 
 .hoja-card h2{
@@ -1547,32 +1469,25 @@ main {
 
   text-align:center;
 
- /* DORADO PREMIUM ELEGANTE */
-background:
-  linear-gradient(
-    180deg,
-    #fff8dc 0%,
-    #ffeaa6 12%,
-    #f7d76b 30%,
-    #e0b84a 48%,
-    #c9921c 68%,
-    #9a6118 84%,
-    #6b3d12 100%
-  );
+  /* UN SOLO COLOR */
+  color:#fff4cf;
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  /* QUITA EFECTOS DE GRADIENTE */
+  background:none;
+  -webkit-text-fill-color:unset;
+  -webkit-background-clip:unset;
 
-  background-clip:text;
+  /* MÁS LUZ Y SOMBRA DETRÁS */
+  text-shadow:
+    0 2px 2px rgba(0,0,0,.55),
+    0 6px 12px rgba(0,0,0,.45),
+    0 12px 24px rgba(0,0,0,.38),
+    0 0 10px rgba(255,225,150,.35),
+    0 0 22px rgba(255,235,180,.28);
 
-  /* SOMBRA EXTERNA */
+  /* BRILLO SUAVE */
   filter:
-    drop-shadow(0 2px 2px rgba(70,35,10,.55))
-    drop-shadow(0 6px 10px rgba(0,0,0,.28))
-    drop-shadow(0 0 8px rgba(255,215,120,.18));
-
-  /* CONTORNO SUAVE */
-  -webkit-text-stroke:.35px rgba(90,50,15,.38);
+    drop-shadow(0 0 8px rgba(255,230,160,.22));
 
   z-index:5;
 }
